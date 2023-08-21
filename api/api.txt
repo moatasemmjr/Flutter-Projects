@@ -1,0 +1,51 @@
+  flutter -->  api
+
+  1- Choose an API : First, you need to select the API you want to use. 
+  ex: https://jsonplaceholder.typicode.com/posts
+  2- Add Dependencies:  pubspec.yaml --> http:
+  3- Create API Calls: You can create a service or utility class to encapsulate your API calls.
+     This class should use the http package to make HTTP requests.
+     For example:
+
+ import 'package:http/http.dart' as http;
+
+ class Service {
+  final String baseUrl = 'https://jsonplaceholder.typicode.com';
+
+  Future<dynamic> fetchData(String endpoint) async {
+    final response = await http.get(Uri.parse('$baseUrl/$endpoint'));
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      throw Exception('Failed to load data');
+    }
+  }
+}
+
+
+4- Parse API Responses: Depending on the API's response format (usually JSON),
+    you need to parse the response into usable Dart objects.
+
+import 'dart:convert';
+
+class DataModel {
+  final int userId;
+  final int id;
+  final String title;
+
+  DataModel({
+    required this.userId,
+    required this.id,
+    required this.title,
+  });
+
+  factory DataModel.fromJson(Map<String, dynamic> json) {
+    return DataModel(
+        userId: json['userId'], id: json['id'], title: json['title']);
+  }
+}
+
+
+
+
+5- Use Data in Widgets: 
