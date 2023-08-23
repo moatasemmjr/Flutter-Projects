@@ -28,7 +28,7 @@ The UI design is focused on providing a clean and user-friendly experience for u
 
 To get started with this project, follow these steps:
 
-1. Clone this repository: `git clone https://github.com/yourusername/your-flutter-ui.git`
+1. Clone this repository: `git clone https://github.com/moatasemmjr/Flutter-Projects/tree/main/auth_flutter`
 2. Navigate to the project directory: `cd your-flutter-ui`
 3. Run `flutter pub get` to install dependencies.
 
